@@ -9,21 +9,89 @@
 /* Begin PBXBuildFile section */
 		F9A41A4F2BFBB23F00BB7B4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */; };
 		F9A41A512BFBB23F00BB7B4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */; };
-		F9A41A532BFBB23F00BB7B4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A522BFBB23F00BB7B4B /* ViewController.swift */; };
-		F9A41A562BFBB23F00BB7B4B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F9A41A552BFBB23F00BB7B4B /* Base */; };
+		F9A41A532BFBB23F00BB7B4B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */; };
 		F9A41A582BFBB24100BB7B4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A41A572BFBB24100BB7B4B /* Assets.xcassets */; };
 		F9A41A5B2BFBB24100BB7B4B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F9A41A5A2BFBB24100BB7B4B /* Base */; };
+		F9A41A662BFBB31A00BB7B4B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A652BFBB31A00BB7B4B /* Kingfisher */; };
+		F9A41A6A2BFBB33000BB7B4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A692BFBB33000BB7B4B /* SnapKit */; };
+		F9A41A6D2BFBB33E00BB7B4B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6C2BFBB33E00BB7B4B /* Lottie */; };
+		F9A41A702BFBB3CA00BB7B4B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */; };
+		F9A41A732BFBB40300BB7B4B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A722BFBB40300BB7B4B /* FirebaseAuth */; };
+		F9A41A752BFBB83500BB7B4B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A742BFBB83500BB7B4B /* LoginVC.swift */; };
+		F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */; };
+		F9A41A792BFBB86E00BB7B4B /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A782BFBB86E00BB7B4B /* CartVC.swift */; };
+		F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */; };
+		F9A41A892BFBB96500BB7B4B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A802BFBB96500BB7B4B /* UITextField+Extension.swift */; };
+		F9A41A8A2BFBB96500BB7B4B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A812BFBB96500BB7B4B /* UIStackView+Extension.swift */; };
+		F9A41A8B2BFBB96500BB7B4B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A822BFBB96500BB7B4B /* UITableView+Extension.swift */; };
+		F9A41A8C2BFBB96500BB7B4B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A832BFBB96500BB7B4B /* UIButton+Extension.swift */; };
+		F9A41A8D2BFBB96500BB7B4B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A842BFBB96500BB7B4B /* String+Extensions.swift */; };
+		F9A41A8E2BFBB96500BB7B4B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A852BFBB96500BB7B4B /* UIView+Extension.swift */; };
+		F9A41A8F2BFBB96500BB7B4B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A862BFBB96500BB7B4B /* UILabel+Extension.swift */; };
+		F9A41A902BFBB96500BB7B4B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A872BFBB96500BB7B4B /* UIViewController+Extension.swift */; };
+		F9A41A912BFBB96500BB7B4B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A882BFBB96500BB7B4B /* UIImageView+Extension.swift */; };
+		F9A41A942BFBB9E100BB7B4B /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A932BFBB9E100BB7B4B /* TextType.swift */; };
+		F9A41A962BFBBA2300BB7B4B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A952BFBBA2300BB7B4B /* TextFieldType.swift */; };
+		F9A41A982BFBC73C00BB7B4B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A972BFBC73C00BB7B4B /* MainVC.swift */; };
+		F9A41AA02BFBC87400BB7B4B /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A9E2BFBC87400BB7B4B /* FoodRepository.swift */; };
+		F9A41AA22BFBC91800BB7B4B /* Yemekler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AA12BFBC91800BB7B4B /* Yemekler.swift */; };
+		F9A41AA42BFBC94A00BB7B4B /* TumYemekler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AA32BFBC94A00BB7B4B /* TumYemekler.swift */; };
+		F9A41AA62BFBCA4700BB7B4B /* SepetTumYemekler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AA52BFBCA4700BB7B4B /* SepetTumYemekler.swift */; };
+		F9A41AA82BFBCA8800BB7B4B /* SepetYemekler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AA72BFBCA8800BB7B4B /* SepetYemekler.swift */; };
+		F9A41AAB2BFBCC9E00BB7B4B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41AAA2BFBCC9E00BB7B4B /* Alamofire */; };
+		F9A41AAF2BFBCDE900BB7B4B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AAE2BFBCDE900BB7B4B /* MainViewModel.swift */; };
+		F9A41AB62BFCC55100BB7B4B /* FoodCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AB52BFCC55100BB7B4B /* FoodCollectionCell.swift */; };
+		F9A41ABB2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41ABA2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift */; };
+		F9A41AC72BFCE1A900BB7B4B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41AC52BFCE1A900BB7B4B /* CustomTabBarController.swift */; };
+		F9A41ACD2BFCF99400BB7B4B /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41ACC2BFCF99400BB7B4B /* FavoritesVC.swift */; };
+		F9A41B282BFD154800BB7B4B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B212BFD154800BB7B4B /* Rubik-Bold.ttf */; };
+		F9A41B292BFD154800BB7B4B /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B222BFD154800BB7B4B /* Rubik-ExtraBold.ttf */; };
+		F9A41B2A2BFD154800BB7B4B /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B232BFD154800BB7B4B /* Rubik-Light.ttf */; };
+		F9A41B2B2BFD154800BB7B4B /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B242BFD154800BB7B4B /* Rubik-Medium.ttf */; };
+		F9A41B2C2BFD154800BB7B4B /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B252BFD154800BB7B4B /* Rubik-Regular.ttf */; };
+		F9A41B2D2BFD154800BB7B4B /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9A41B262BFD154800BB7B4B /* Rubik-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F9A41A4B2BFBB23F00BB7B4B /* YemekSiparis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YemekSiparis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F9A41A522BFBB23F00BB7B4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F9A41A552BFBB23F00BB7B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		F9A41A572BFBB24100BB7B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9A41A5A2BFBB24100BB7B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A41A5C2BFBB24100BB7B4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9A41A742BFBB83500BB7B4B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		F9A41A782BFBB86E00BB7B4B /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		F9A41A802BFBB96500BB7B4B /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A812BFBB96500BB7B4B /* UIStackView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A822BFBB96500BB7B4B /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A832BFBB96500BB7B4B /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A842BFBB96500BB7B4B /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		F9A41A852BFBB96500BB7B4B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A862BFBB96500BB7B4B /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A872BFBB96500BB7B4B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A882BFBB96500BB7B4B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		F9A41A932BFBB9E100BB7B4B /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
+		F9A41A952BFBBA2300BB7B4B /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
+		F9A41A972BFBC73C00BB7B4B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		F9A41A9E2BFBC87400BB7B4B /* FoodRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
+		F9A41AA12BFBC91800BB7B4B /* Yemekler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yemekler.swift; sourceTree = "<group>"; };
+		F9A41AA32BFBC94A00BB7B4B /* TumYemekler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumYemekler.swift; sourceTree = "<group>"; };
+		F9A41AA52BFBCA4700BB7B4B /* SepetTumYemekler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetTumYemekler.swift; sourceTree = "<group>"; };
+		F9A41AA72BFBCA8800BB7B4B /* SepetYemekler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepetYemekler.swift; sourceTree = "<group>"; };
+		F9A41AAE2BFBCDE900BB7B4B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F9A41AB52BFCC55100BB7B4B /* FoodCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionCell.swift; sourceTree = "<group>"; };
+		F9A41ABA2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F9A41AC52BFCE1A900BB7B4B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F9A41ACC2BFCF99400BB7B4B /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		F9A41B212BFD154800BB7B4B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		F9A41B222BFD154800BB7B4B /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F9A41B232BFD154800BB7B4B /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		F9A41B242BFD154800BB7B4B /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		F9A41B252BFD154800BB7B4B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		F9A41B262BFD154800BB7B4B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +99,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A41A662BFBB31A00BB7B4B /* Kingfisher in Frameworks */,
+				F9A41A732BFBB40300BB7B4B /* FirebaseAuth in Frameworks */,
+				F9A41A6A2BFBB33000BB7B4B /* SnapKit in Frameworks */,
+				F9A41AAB2BFBCC9E00BB7B4B /* Alamofire in Frameworks */,
+				F9A41A702BFBB3CA00BB7B4B /* RxSwift in Frameworks */,
+				F9A41A6D2BFBB33E00BB7B4B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +116,7 @@
 			children = (
 				F9A41A4D2BFBB23F00BB7B4B /* YemekSiparis */,
 				F9A41A4C2BFBB23F00BB7B4B /* Products */,
+				F9A41A6E2BFBB3CA00BB7B4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +131,157 @@
 		F9A41A4D2BFBB23F00BB7B4B /* YemekSiparis */ = {
 			isa = PBXGroup;
 			children = (
+				F9A41A9F2BFBC87400BB7B4B /* FoodRepository */,
+				F9A41A7E2BFBB91900BB7B4B /* Entity */,
+				F9A41A7C2BFBB8ED00BB7B4B /* Utilities */,
 				F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */,
 				F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */,
-				F9A41A522BFBB23F00BB7B4B /* ViewController.swift */,
-				F9A41A542BFBB23F00BB7B4B /* Main.storyboard */,
+				F9A41A622BFBB2C200BB7B4B /* ui */,
 				F9A41A572BFBB24100BB7B4B /* Assets.xcassets */,
 				F9A41A592BFBB24100BB7B4B /* LaunchScreen.storyboard */,
 				F9A41A5C2BFBB24100BB7B4B /* Info.plist */,
 			);
 			path = YemekSiparis;
+			sourceTree = "<group>";
+		};
+		F9A41A622BFBB2C200BB7B4B /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41AC62BFCE1A900BB7B4B /* TabBar */,
+				F9A41AB72BFCC5B700BB7B4B /* Components */,
+				F9A41AB22BFCC4FA00BB7B4B /* Cell */,
+				F9A41AB12BFBCDFC00BB7B4B /* ViewModel */,
+				F9A41A632BFBB2C800BB7B4B /* Views */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		F9A41A632BFBB2C800BB7B4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */,
+				F9A41A742BFBB83500BB7B4B /* LoginVC.swift */,
+				F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */,
+				F9A41A782BFBB86E00BB7B4B /* CartVC.swift */,
+				F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */,
+				F9A41A972BFBC73C00BB7B4B /* MainVC.swift */,
+				F9A41ACC2BFCF99400BB7B4B /* FavoritesVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F9A41A6E2BFBB3CA00BB7B4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9A41A7C2BFBB8ED00BB7B4B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41B272BFD154800BB7B4B /* Fonts */,
+				F9A41A7D2BFBB8F300BB7B4B /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F9A41A7D2BFBB8F300BB7B4B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41A842BFBB96500BB7B4B /* String+Extensions.swift */,
+				F9A41A832BFBB96500BB7B4B /* UIButton+Extension.swift */,
+				F9A41A882BFBB96500BB7B4B /* UIImageView+Extension.swift */,
+				F9A41A862BFBB96500BB7B4B /* UILabel+Extension.swift */,
+				F9A41A812BFBB96500BB7B4B /* UIStackView+Extension.swift */,
+				F9A41A822BFBB96500BB7B4B /* UITableView+Extension.swift */,
+				F9A41A802BFBB96500BB7B4B /* UITextField+Extension.swift */,
+				F9A41A852BFBB96500BB7B4B /* UIView+Extension.swift */,
+				F9A41A872BFBB96500BB7B4B /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F9A41A7E2BFBB91900BB7B4B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41A922BFBB97B00BB7B4B /* Enum */,
+				F9A41A7F2BFBB92400BB7B4B /* Model */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F9A41A7F2BFBB92400BB7B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41AA12BFBC91800BB7B4B /* Yemekler.swift */,
+				F9A41AA32BFBC94A00BB7B4B /* TumYemekler.swift */,
+				F9A41AA52BFBCA4700BB7B4B /* SepetTumYemekler.swift */,
+				F9A41AA72BFBCA8800BB7B4B /* SepetYemekler.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F9A41A922BFBB97B00BB7B4B /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41A932BFBB9E100BB7B4B /* TextType.swift */,
+				F9A41A952BFBBA2300BB7B4B /* TextFieldType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		F9A41A9F2BFBC87400BB7B4B /* FoodRepository */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41A9E2BFBC87400BB7B4B /* FoodRepository.swift */,
+			);
+			path = FoodRepository;
+			sourceTree = "<group>";
+		};
+		F9A41AB12BFBCDFC00BB7B4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41AAE2BFBCDE900BB7B4B /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F9A41AB22BFCC4FA00BB7B4B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41AB52BFCC55100BB7B4B /* FoodCollectionCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F9A41AB72BFCC5B700BB7B4B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41ABA2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F9A41AC62BFCE1A900BB7B4B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41AC52BFCE1A900BB7B4B /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F9A41B272BFD154800BB7B4B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41B212BFD154800BB7B4B /* Rubik-Bold.ttf */,
+				F9A41B222BFD154800BB7B4B /* Rubik-ExtraBold.ttf */,
+				F9A41B232BFD154800BB7B4B /* Rubik-Light.ttf */,
+				F9A41B242BFD154800BB7B4B /* Rubik-Medium.ttf */,
+				F9A41B252BFD154800BB7B4B /* Rubik-Regular.ttf */,
+				F9A41B262BFD154800BB7B4B /* Rubik-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +300,14 @@
 			dependencies = (
 			);
 			name = YemekSiparis;
+			packageProductDependencies = (
+				F9A41A652BFBB31A00BB7B4B /* Kingfisher */,
+				F9A41A692BFBB33000BB7B4B /* SnapKit */,
+				F9A41A6C2BFBB33E00BB7B4B /* Lottie */,
+				F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */,
+				F9A41A722BFBB40300BB7B4B /* FirebaseAuth */,
+				F9A41AAA2BFBCC9E00BB7B4B /* Alamofire */,
+			);
 			productName = YemekSiparis;
 			productReference = F9A41A4B2BFBB23F00BB7B4B /* YemekSiparis.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +336,14 @@
 				Base,
 			);
 			mainGroup = F9A41A422BFBB23F00BB7B4B;
+			packageReferences = (
+				F9A41A642BFBB31A00BB7B4B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F9A41A672BFBB32500BB7B4B /* XCRemoteSwiftPackageReference "RxSwift" */,
+				F9A41A682BFBB33000BB7B4B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F9A41A6B2BFBB33E00BB7B4B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F9A41AA92BFBCC9E00BB7B4B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = F9A41A4C2BFBB23F00BB7B4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +359,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9A41A582BFBB24100BB7B4B /* Assets.xcassets in Resources */,
+				F9A41B2C2BFD154800BB7B4B /* Rubik-Regular.ttf in Resources */,
+				F9A41B282BFD154800BB7B4B /* Rubik-Bold.ttf in Resources */,
+				F9A41B2A2BFD154800BB7B4B /* Rubik-Light.ttf in Resources */,
+				F9A41B2B2BFD154800BB7B4B /* Rubik-Medium.ttf in Resources */,
+				F9A41B292BFD154800BB7B4B /* Rubik-ExtraBold.ttf in Resources */,
 				F9A41A5B2BFBB24100BB7B4B /* Base in Resources */,
-				F9A41A562BFBB23F00BB7B4B /* Base in Resources */,
+				F9A41B2D2BFD154800BB7B4B /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +376,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9A41A532BFBB23F00BB7B4B /* ViewController.swift in Sources */,
+				F9A41A532BFBB23F00BB7B4B /* SplashVC.swift in Sources */,
+				F9A41A8E2BFBB96500BB7B4B /* UIView+Extension.swift in Sources */,
 				F9A41A4F2BFBB23F00BB7B4B /* AppDelegate.swift in Sources */,
+				F9A41A902BFBB96500BB7B4B /* UIViewController+Extension.swift in Sources */,
+				F9A41A792BFBB86E00BB7B4B /* CartVC.swift in Sources */,
+				F9A41AAF2BFBCDE900BB7B4B /* MainViewModel.swift in Sources */,
+				F9A41AA82BFBCA8800BB7B4B /* SepetYemekler.swift in Sources */,
+				F9A41A8C2BFBB96500BB7B4B /* UIButton+Extension.swift in Sources */,
+				F9A41A8D2BFBB96500BB7B4B /* String+Extensions.swift in Sources */,
+				F9A41A752BFBB83500BB7B4B /* LoginVC.swift in Sources */,
 				F9A41A512BFBB23F00BB7B4B /* SceneDelegate.swift in Sources */,
+				F9A41ABB2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift in Sources */,
+				F9A41ACD2BFCF99400BB7B4B /* FavoritesVC.swift in Sources */,
+				F9A41AA62BFBCA4700BB7B4B /* SepetTumYemekler.swift in Sources */,
+				F9A41A8A2BFBB96500BB7B4B /* UIStackView+Extension.swift in Sources */,
+				F9A41A912BFBB96500BB7B4B /* UIImageView+Extension.swift in Sources */,
+				F9A41A892BFBB96500BB7B4B /* UITextField+Extension.swift in Sources */,
+				F9A41A982BFBC73C00BB7B4B /* MainVC.swift in Sources */,
+				F9A41A8F2BFBB96500BB7B4B /* UILabel+Extension.swift in Sources */,
+				F9A41AA42BFBC94A00BB7B4B /* TumYemekler.swift in Sources */,
+				F9A41A962BFBBA2300BB7B4B /* TextFieldType.swift in Sources */,
+				F9A41AB62BFCC55100BB7B4B /* FoodCollectionCell.swift in Sources */,
+				F9A41A942BFBB9E100BB7B4B /* TextType.swift in Sources */,
+				F9A41AC72BFCE1A900BB7B4B /* CustomTabBarController.swift in Sources */,
+				F9A41A8B2BFBB96500BB7B4B /* UITableView+Extension.swift in Sources */,
+				F9A41AA22BFBC91800BB7B4B /* Yemekler.swift in Sources */,
+				F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */,
+				F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */,
+				F9A41AA02BFBC87400BB7B4B /* FoodRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F9A41A542BFBB23F00BB7B4B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9A41A552BFBB23F00BB7B4B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F9A41A592BFBB24100BB7B4B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -218,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -275,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -295,11 +551,12 @@
 				DEVELOPMENT_TEAM = H6QQ8QA88T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YemekSiparis/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Yemek;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +564,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omerbozbulut.YemekSiparis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,11 +584,12 @@
 				DEVELOPMENT_TEAM = H6QQ8QA88T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YemekSiparis/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Yemek;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,6 +597,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omerbozbulut.YemekSiparis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,6 +629,90 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F9A41A642BFBB31A00BB7B4B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		F9A41A672BFBB32500BB7B4B /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+		F9A41A682BFBB33000BB7B4B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		F9A41A6B2BFBB33E00BB7B4B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+		F9A41AA92BFBCC9E00BB7B4B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9A41A652BFBB31A00BB7B4B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41A642BFBB31A00BB7B4B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		F9A41A692BFBB33000BB7B4B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41A682BFBB33000BB7B4B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		F9A41A6C2BFBB33E00BB7B4B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41A6B2BFBB33E00BB7B4B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41A672BFBB32500BB7B4B /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		F9A41A722BFBB40300BB7B4B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F9A41AAA2BFBCC9E00BB7B4B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9A41AA92BFBCC9E00BB7B4B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9A41A432BFBB23F00BB7B4B /* Project object */;
 }

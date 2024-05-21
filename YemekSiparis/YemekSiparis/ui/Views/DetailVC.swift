@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  DetailVC.swift
 //  YemekSiparis
 //
 //  Created by Ömer Bozbulut on 20.05.2024.
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class DetailVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
-
 }
-
