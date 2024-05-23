@@ -17,4 +17,11 @@ class Yemekler: Codable {
         case yemekResimAdi = "yemek_resim_adi"
         case yemekFiyat = "yemek_fiyat"
     }
+    
+    init(yemekID: String, yemekFiyat: String, yemekAdi: String, yemekResimAdi: String) {
+        self.yemekID = yemekID
+        self.yemekFiyat = yemekFiyat
+        self.yemekAdi = yemekAdi
+        self.yemekResimAdi = yemekResimAdi
+    }
 }

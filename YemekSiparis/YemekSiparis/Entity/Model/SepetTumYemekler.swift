@@ -8,6 +8,6 @@
 import Foundation
 
 class SepetTumyemekler: Codable {
-    let yemekler: [Sepet_yemekler]?
-    let success: Int?
+    var sepet_yemekler: [Sepet_yemekler]?
+    var success: Int?
 }
