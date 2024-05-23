@@ -8,13 +8,37 @@
 import UIKit
 
 class BaseView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    init(backgroundColor: UIColor?, cornerRadius: CGFloat? = nil, isHidden: Bool = false) {
+        self.init()
+        
+        self.backgroundColor = backgroundColor
+        if let cornerRadius = cornerRadius {
+            layer.cornerRadius = cornerRadius
+        }
+        
+        self.isHidden = isHidden
     }
-    */
-
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupViews()
+        setupLayout()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setupViews()
+        setupLayout()
+    }
+    
+    /// Setup view and its subviews here.
+    open func setupViews() {
+        backgroundColor = .white
+    }
+    
+    /// Setup view and its subviews autolayout here.
+    open func setupLayout() {}
 }

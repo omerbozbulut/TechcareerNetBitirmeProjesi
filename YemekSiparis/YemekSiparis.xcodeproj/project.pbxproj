@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F98D59672BFD1E5B0096F2F7 /* StepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59662BFD1E5B0096F2F7 /* StepperButton.swift */; };
+		F98D59692BFD20D00096F2F7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59682BFD20D00096F2F7 /* BaseView.swift */; };
+		F98D596C2BFD71EE0096F2F7 /* FoodCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D596B2BFD71EE0096F2F7 /* FoodCartCell.swift */; };
+		F98D596E2BFD720F0096F2F7 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D596D2BFD720F0096F2F7 /* BaseTableViewCell.swift */; };
+		F98D59702BFD78E40096F2F7 /* RecommendedFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D596F2BFD78E40096F2F7 /* RecommendedFoodCell.swift */; };
+		F98D59722BFE246C0096F2F7 /* CRUDCevap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59712BFE246C0096F2F7 /* CRUDCevap.swift */; };
+		F98D59742BFE2B6B0096F2F7 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59732BFE2B6B0096F2F7 /* CartViewModel.swift */; };
 		F9A41A4F2BFBB23F00BB7B4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */; };
 		F9A41A512BFBB23F00BB7B4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */; };
 		F9A41A532BFBB23F00BB7B4B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */; };
@@ -17,7 +24,6 @@
 		F9A41A6D2BFBB33E00BB7B4B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6C2BFBB33E00BB7B4B /* Lottie */; };
 		F9A41A702BFBB3CA00BB7B4B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */; };
 		F9A41A732BFBB40300BB7B4B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A722BFBB40300BB7B4B /* FirebaseAuth */; };
-		F9A41A752BFBB83500BB7B4B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A742BFBB83500BB7B4B /* LoginVC.swift */; };
 		F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */; };
 		F9A41A792BFBB86E00BB7B4B /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A782BFBB86E00BB7B4B /* CartVC.swift */; };
 		F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */; };
@@ -53,6 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F98D59662BFD1E5B0096F2F7 /* StepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperButton.swift; sourceTree = "<group>"; };
+		F98D59682BFD20D00096F2F7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F98D596B2BFD71EE0096F2F7 /* FoodCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCartCell.swift; sourceTree = "<group>"; };
+		F98D596D2BFD720F0096F2F7 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		F98D596F2BFD78E40096F2F7 /* RecommendedFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedFoodCell.swift; sourceTree = "<group>"; };
+		F98D59712BFE246C0096F2F7 /* CRUDCevap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDCevap.swift; sourceTree = "<group>"; };
+		F98D59732BFE2B6B0096F2F7 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		F9A41A4B2BFBB23F00BB7B4B /* YemekSiparis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YemekSiparis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +73,6 @@
 		F9A41A572BFBB24100BB7B4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9A41A5A2BFBB24100BB7B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9A41A5C2BFBB24100BB7B4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9A41A742BFBB83500BB7B4B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		F9A41A782BFBB86E00BB7B4B /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
@@ -111,6 +123,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F98D59652BFD1E490096F2F7 /* StepperButton */ = {
+			isa = PBXGroup;
+			children = (
+				F98D59662BFD1E5B0096F2F7 /* StepperButton.swift */,
+			);
+			path = StepperButton;
+			sourceTree = "<group>";
+		};
+		F98D596A2BFD20D70096F2F7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F9A41ABA2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift */,
+				F98D59682BFD20D00096F2F7 /* BaseView.swift */,
+				F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */,
+				F98D596D2BFD720F0096F2F7 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F9A41A422BFBB23F00BB7B4B = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +178,12 @@
 		F9A41A622BFBB2C200BB7B4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				F98D59652BFD1E490096F2F7 /* StepperButton */,
 				F9A41AC62BFCE1A900BB7B4B /* TabBar */,
-				F9A41AB72BFCC5B700BB7B4B /* Components */,
 				F9A41AB22BFCC4FA00BB7B4B /* Cell */,
 				F9A41AB12BFBCDFC00BB7B4B /* ViewModel */,
 				F9A41A632BFBB2C800BB7B4B /* Views */,
+				F98D596A2BFD20D70096F2F7 /* Base */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -160,8 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */,
-				F9A41A742BFBB83500BB7B4B /* LoginVC.swift */,
-				F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */,
 				F9A41A782BFBB86E00BB7B4B /* CartVC.swift */,
 				F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */,
 				F9A41A972BFBC73C00BB7B4B /* MainVC.swift */,
@@ -218,6 +248,7 @@
 				F9A41AA32BFBC94A00BB7B4B /* TumYemekler.swift */,
 				F9A41AA52BFBCA4700BB7B4B /* SepetTumYemekler.swift */,
 				F9A41AA72BFBCA8800BB7B4B /* SepetYemekler.swift */,
+				F98D59712BFE246C0096F2F7 /* CRUDCevap.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				F9A41AAE2BFBCDE900BB7B4B /* MainViewModel.swift */,
+				F98D59732BFE2B6B0096F2F7 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,16 +283,10 @@
 			isa = PBXGroup;
 			children = (
 				F9A41AB52BFCC55100BB7B4B /* FoodCollectionCell.swift */,
+				F98D596B2BFD71EE0096F2F7 /* FoodCartCell.swift */,
+				F98D596F2BFD78E40096F2F7 /* RecommendedFoodCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		F9A41AB72BFCC5B700BB7B4B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F9A41ABA2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		F9A41AC62BFCE1A900BB7B4B /* TabBar */ = {
@@ -385,16 +411,20 @@
 				F9A41AA82BFBCA8800BB7B4B /* SepetYemekler.swift in Sources */,
 				F9A41A8C2BFBB96500BB7B4B /* UIButton+Extension.swift in Sources */,
 				F9A41A8D2BFBB96500BB7B4B /* String+Extensions.swift in Sources */,
-				F9A41A752BFBB83500BB7B4B /* LoginVC.swift in Sources */,
 				F9A41A512BFBB23F00BB7B4B /* SceneDelegate.swift in Sources */,
 				F9A41ABB2BFCC8C300BB7B4B /* BaseCollectionViewCell.swift in Sources */,
 				F9A41ACD2BFCF99400BB7B4B /* FavoritesVC.swift in Sources */,
 				F9A41AA62BFBCA4700BB7B4B /* SepetTumYemekler.swift in Sources */,
 				F9A41A8A2BFBB96500BB7B4B /* UIStackView+Extension.swift in Sources */,
 				F9A41A912BFBB96500BB7B4B /* UIImageView+Extension.swift in Sources */,
+				F98D596E2BFD720F0096F2F7 /* BaseTableViewCell.swift in Sources */,
+				F98D59742BFE2B6B0096F2F7 /* CartViewModel.swift in Sources */,
 				F9A41A892BFBB96500BB7B4B /* UITextField+Extension.swift in Sources */,
+				F98D59672BFD1E5B0096F2F7 /* StepperButton.swift in Sources */,
 				F9A41A982BFBC73C00BB7B4B /* MainVC.swift in Sources */,
 				F9A41A8F2BFBB96500BB7B4B /* UILabel+Extension.swift in Sources */,
+				F98D59692BFD20D00096F2F7 /* BaseView.swift in Sources */,
+				F98D59722BFE246C0096F2F7 /* CRUDCevap.swift in Sources */,
 				F9A41AA42BFBC94A00BB7B4B /* TumYemekler.swift in Sources */,
 				F9A41A962BFBBA2300BB7B4B /* TextFieldType.swift in Sources */,
 				F9A41AB62BFCC55100BB7B4B /* FoodCollectionCell.swift in Sources */,
@@ -402,9 +432,11 @@
 				F9A41AC72BFCE1A900BB7B4B /* CustomTabBarController.swift in Sources */,
 				F9A41A8B2BFBB96500BB7B4B /* UITableView+Extension.swift in Sources */,
 				F9A41AA22BFBC91800BB7B4B /* Yemekler.swift in Sources */,
+				F98D59702BFD78E40096F2F7 /* RecommendedFoodCell.swift in Sources */,
 				F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */,
 				F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */,
 				F9A41AA02BFBC87400BB7B4B /* FoodRepository.swift in Sources */,
+				F98D596C2BFD71EE0096F2F7 /* FoodCartCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

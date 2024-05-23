@@ -8,16 +8,33 @@
 import UIKit
 
 class BaseTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setupLayout()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setupViews()
+        setupLayout()
     }
+    
+    open func setupViews() {
+        backgroundColor = .clear
+        selectionStyle = .none
+    }
+    
+    open func setupLayout() {}
+}
 
+extension BaseTableViewCell {
+    
+    public static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+    
 }
