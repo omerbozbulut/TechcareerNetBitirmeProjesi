@@ -39,7 +39,7 @@ extension UIView {
     
     public func addBorder(borderWidth: CGFloat = 1, borderColor: UIColor = UIColor.blue) {
         self.layer.borderWidth = borderWidth
-        self.layer.borderColor  = borderColor.cgColor
+        self.layer.borderColor = borderColor.cgColor
     }
 }
     
@@ -96,3 +96,4 @@ extension UIView {
         superview?.addConstraints(constraints)
     }
 }
+
