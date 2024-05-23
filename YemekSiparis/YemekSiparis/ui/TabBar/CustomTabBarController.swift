@@ -16,6 +16,8 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.tintColor = .myRed
+        tabBar.backgroundColor = .white
+        tabBar.barTintColor = .white
         
         setupMiddleButton()
         setupViewControllers()
@@ -24,14 +26,16 @@ class CustomTabBarController: UITabBarController {
     func setupViewControllers() {
         let firstVC = MainVC()
         firstVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house.fill"), tag: 0)
+        let nav1 = UINavigationController(rootViewController: firstVC)
         
         let secondVC = CartVC()
-        secondVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "cart.fill"), tag: 1)
+        secondVC.tabBarItem = UITabBarItem(title: nil, image: nil, tag: 1)
+        let nav2 = UINavigationController(rootViewController: secondVC)
         
         let thirdVC = FavoritesVC()
         thirdVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart.fill"), tag: 2)
-        
-        viewControllers = [firstVC, secondVC, thirdVC]
+        let nav3 = UINavigationController(rootViewController: thirdVC)
+        viewControllers = [nav1, nav2, nav3]
     }
     
     func setupMiddleButton() {
