@@ -18,7 +18,8 @@ extension UIButton {
         cornerRadius: CGFloat? = 0.0,
         isEnabled: Bool = true,
         backgroundColor: UIColor? = .white,
-        titleColor: UIColor? = .black) {
+        titleColor: UIColor? = .black,
+        cornerStyle: Configuration.CornerStyle = .capsule) {
             
             self.init(type: type)
             
@@ -47,6 +48,7 @@ extension UIButton {
             conf.contentInsets = NSDirectionalEdgeInsets(top: contentEdgeInsets.top, leading: contentEdgeInsets.left, bottom: contentEdgeInsets.bottom, trailing: contentEdgeInsets.right)
             conf.baseBackgroundColor = backgroundColor
             conf.imagePadding = 10
+            conf.cornerStyle  = cornerStyle
             conf.baseForegroundColor = titleColor
             self.configuration = conf
             
