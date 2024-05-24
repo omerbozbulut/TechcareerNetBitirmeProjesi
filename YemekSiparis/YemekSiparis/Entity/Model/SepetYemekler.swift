@@ -8,9 +8,9 @@
 import Foundation
 
 class Sepet_yemekler: Codable {
-    let yemekID: String?
-    let yemekFiyat: String?
-    let yemekAdi, yemekResimAdi, kullaniciAdi: String?
+    var yemekID: String?
+    var yemekFiyat: String?
+    var yemekAdi, yemekResimAdi, kullaniciAdi: String?
     var yemekAdet: String?
 
     enum CodingKeys: String, CodingKey {
