@@ -18,6 +18,7 @@ class CustomTabBarController: UITabBarController {
         tabBar.tintColor = .myRed
         tabBar.backgroundColor = .white
         tabBar.barTintColor = .white
+        tabBar.addBorder(borderWidth: 0.5, borderColor: .gray)
         
         setupMiddleButton()
         setupViewControllers()
