@@ -20,8 +20,9 @@ class CartVC: BaseVC {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .white
         tableView.rowHeight = 120
-        tableView.separatorColor = .gray
+        tableView.separatorStyle = .none
         tableView.registerClass(cell: FoodCartCell.self)
         return tableView
     }()
@@ -48,9 +49,10 @@ class CartVC: BaseVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.getAllFood()
     }
-
+    
     override func setupLayout() {
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -110,15 +112,19 @@ extension CartVC {
 }
 
 extension CartVC: CartCellDelegate {
-    func addFoodToCart(yemekID: String) {
+    func addFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
         if let currentFood = cartFoods.filter({$0.yemekID == yemekID}).first {
-            viewModel.addToCart(sepet_yemek: currentFood)
+            viewModel.addToCart(sepet_yemek: currentFood, completion: { value in
+                completion(value)
+            })
         }
     }
     
-    func removeFoodToCart(yemekID: String) {
+    func removeFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
         if let currentFood = cartFoods.filter({$0.yemekID == yemekID}).first {
-            viewModel.removeFromCart(sepet_yemek: currentFood)
+            viewModel.removeFromCart(sepet_yemek: currentFood, completion: { value in
+                completion(value)
+            })
         }
     }
     

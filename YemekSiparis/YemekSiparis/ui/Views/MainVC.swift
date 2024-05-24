@@ -18,9 +18,10 @@ class MainVC: BaseVC {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.barTintColor = .white
-        searchBar.tintColor = .black
-        searchBar.placeholder = "Search someting"
+        searchBar.barTintColor = .myRed.withAlphaComponent(0.6)
+        searchBar.tintColor = .white
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search Someting", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.6)])
+        searchBar.searchTextField.textColor = .white
         return searchBar
     }()
     
@@ -52,7 +53,8 @@ class MainVC: BaseVC {
     override func setupViews() {
         super.setupViews()
         
-        viewModel.getAllFood()
+        viewModel.getAllFood(completion: { value in })
+        viewModel.getCartFood()
         bindViewModel()
         setNavbar()
         
@@ -81,7 +83,8 @@ class MainVC: BaseVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getAllFood()
+        super.viewWillAppear(animated)
+        viewModel.getCartFood()
     }
     
     func setNavbar() {
@@ -107,6 +110,22 @@ class MainVC: BaseVC {
             self.reload()
         }
     }
+    
+    func addFoodToCart(yemekID: String, addCount: Int = 1, completion: @escaping (Bool) -> ()) {
+        if let currentFood = foodList.filter({$0.yemekID == yemekID}).first {
+            viewModel.addToCart(yemek: currentFood, addCount: addCount, completion: { value in
+                completion(value)
+            })
+        }
+    }
+    
+    func removeFoodToCart(yemekAdi: String, completion: @escaping (Bool) -> ()) {
+        if let currentFood = cartList.filter({$0.yemekAdi == yemekAdi}).first {
+            viewModel.removeFromCart(yemek: currentFood, completion: { value in
+                completion(value)
+            })
+        }
+    }
 }
 
 extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -124,28 +143,51 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let food = foodList[indexPath.row]
-       
-        //navigationController?.pushViewController(generateVC, animated: true)
+        let food = foodList[indexPath.row]
+        let cartFood = cartList.filter({$0.yemekAdi == food.yemekAdi}).first
+        let destination = DetailVC()
+        destination.delegate = self
+        destination.configureDetail(with: food, count: Int(cartFood?.yemekAdet ?? "0") ?? 0)
+        present(to: destination)
     }
 }
 
 extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        if searchText == "" {
+            self.viewModel.getAllFood(completion: {value in})
+        } else {
+            viewModel.foodList.onNext(foodList.filter{$0.yemekAdi!.lowercased().contains(searchText.lowercased())})
+        }
     }
 }
 
+//MARK: CollectionCell Delegate
 extension MainVC: FoodCollectionCellDelegate {
-    func addFoodToCart(yemekID: String) {
-        if let currentFood = foodList.filter({$0.yemekID == yemekID}).first {
-            viewModel.addToCart(yemek: currentFood)
+    func addCollectionFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
+        addFoodToCart(yemekID: yemekID) { value in
+            completion(value)
         }
     }
     
-    func removeFoodToCart(yemekAdi: String) {
-        if let currentFood = cartList.filter({$0.yemekAdi == yemekAdi}).first {
-            viewModel.removeFromCart(yemek: currentFood)
+    func removeCollectionFoodToCart(yemekAdi: String, completion: @escaping (Bool) -> ()) {
+        removeFoodToCart(yemekAdi: yemekAdi) { value in
+            completion(value)
+        }
+    }
+}
+
+//MARK: Detail Delegate
+extension MainVC: DetailDelegate {
+    func addFoodCart(yemekID: String, count: Int = 1, completion: @escaping (Bool) -> ()) {
+        addFoodToCart(yemekID: yemekID, addCount: count) { value in
+            completion(value)
+        }
+    }
+    
+    func removeFoodCart(yemekAdi: String, completion: @escaping (Bool) -> ()) {
+        removeFoodToCart(yemekAdi: yemekAdi) { value in
+            completion(value)
         }
     }
 }
