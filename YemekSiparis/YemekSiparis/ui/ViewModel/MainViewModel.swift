@@ -18,19 +18,34 @@ class MainViewModel {
         cartList = repository.cartUniqueFoods
     }
     
-    func getAllFood() {
-        repository.getAllFood()
+    func getCartFood() {
         repository.getCartFoods()
     }
     
-    func addToCart(yemek: Yemekler) {
-        let sepetYemek = Sepet_yemekler(yemekID: yemek.yemekID ?? "", yemekFiyat: yemek.yemekFiyat ?? "", yemekAdi: yemek.yemekAdi ?? "", yemekResimAdi: yemek.yemekResimAdi ?? "", kullaniciAdi: "OmerBozbulut", yemekAdet: "1")
-        repository.addToCart(yemek: sepetYemek)
-        getAllFood()
+    func getAllFood(completion: @escaping (Bool) -> ()) {
+        repository.getAllFood(completion: { value in
+            completion(value)
+        })
     }
     
-    func removeFromCart(yemek: Sepet_yemekler) {
-        repository.removeFromCart(yemek: yemek)
-        getAllFood()
+    func addToCart(yemek: Yemekler, addCount: Int = 1, completion: @escaping (Bool) -> ()) {
+        let sepetYemek = Sepet_yemekler(yemekID: UUID().uuidString, yemekFiyat: yemek.yemekFiyat ?? "", yemekAdi: yemek.yemekAdi ?? "Ayran", yemekResimAdi: yemek.yemekResimAdi ?? "", kullaniciAdi: "Omer_Bozbulut", yemekAdet: "1")
+        repository.addToCart(yemek: sepetYemek, addCount: addCount, completion: { value in
+            completion(value)
+        })
+        getCartFood()
+    }
+    
+    func removeFromCart(yemek: Sepet_yemekler, completion: @escaping (Bool) -> ()) {
+        repository.removeFromCart(yemek: yemek,completion: { value in
+            completion(value)
+        })
+        getCartFood()
+    }
+    
+    func findFood() {
+        _ = foodList.subscribe({ foods in
+            
+        })
     }
 }

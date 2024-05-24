@@ -18,16 +18,19 @@ class CartViewModel {
     
     func getAllFood() {
         repository.getCartFoods()
-        repository.getAllFood()
     }
     
-    func addToCart(sepet_yemek: Sepet_yemekler) {
-        repository.addToCart(yemek: sepet_yemek)
+    func addToCart(sepet_yemek: Sepet_yemekler, completion: @escaping (Bool) -> ()) {
+        repository.addToCart(yemek: sepet_yemek, completion: { value in
+         completion(value)
+        })
         getAllFood()
     }
     
-    func removeFromCart(sepet_yemek: Sepet_yemekler) {
-        repository.removeFromCart(yemek: sepet_yemek)
+    func removeFromCart(sepet_yemek: Sepet_yemekler, completion: @escaping (Bool) -> ()) {
+        repository.removeFromCart(yemek: sepet_yemek, completion: { value in
+            completion(value)
+        })
         getAllFood()
     }
 }
