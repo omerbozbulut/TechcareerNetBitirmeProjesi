@@ -14,6 +14,10 @@
 		F98D59702BFD78E40096F2F7 /* RecommendedFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D596F2BFD78E40096F2F7 /* RecommendedFoodCell.swift */; };
 		F98D59722BFE246C0096F2F7 /* CRUDCevap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59712BFE246C0096F2F7 /* CRUDCevap.swift */; };
 		F98D59742BFE2B6B0096F2F7 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59732BFE2B6B0096F2F7 /* CartViewModel.swift */; };
+		F98D59762BFF89010096F2F7 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59752BFF89010096F2F7 /* CustomNavigationView.swift */; };
+		F98D59792BFFAF3D0096F2F7 /* DetailStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D59782BFFAF3D0096F2F7 /* DetailStepperButton.swift */; };
+		F98D597E2C00FF8B0096F2F7 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98D597D2C00FF8B0096F2F7 /* InformationView.swift */; };
+		F98D59822C0102EF0096F2F7 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = F98D59812C0102EF0096F2F7 /* loadingAnimation.json */; };
 		F9A41A4F2BFBB23F00BB7B4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */; };
 		F9A41A512BFBB23F00BB7B4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */; };
 		F9A41A532BFBB23F00BB7B4B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A522BFBB23F00BB7B4B /* SplashVC.swift */; };
@@ -23,7 +27,6 @@
 		F9A41A6A2BFBB33000BB7B4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A692BFBB33000BB7B4B /* SnapKit */; };
 		F9A41A6D2BFBB33E00BB7B4B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6C2BFBB33E00BB7B4B /* Lottie */; };
 		F9A41A702BFBB3CA00BB7B4B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */; };
-		F9A41A732BFBB40300BB7B4B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F9A41A722BFBB40300BB7B4B /* FirebaseAuth */; };
 		F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A762BFBB83D00BB7B4B /* BaseVC.swift */; };
 		F9A41A792BFBB86E00BB7B4B /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A782BFBB86E00BB7B4B /* CartVC.swift */; };
 		F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A41A7A2BFBB87800BB7B4B /* DetailVC.swift */; };
@@ -66,6 +69,10 @@
 		F98D596F2BFD78E40096F2F7 /* RecommendedFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedFoodCell.swift; sourceTree = "<group>"; };
 		F98D59712BFE246C0096F2F7 /* CRUDCevap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDCevap.swift; sourceTree = "<group>"; };
 		F98D59732BFE2B6B0096F2F7 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		F98D59752BFF89010096F2F7 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		F98D59782BFFAF3D0096F2F7 /* DetailStepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStepperButton.swift; sourceTree = "<group>"; };
+		F98D597D2C00FF8B0096F2F7 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		F98D59812C0102EF0096F2F7 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		F9A41A4B2BFBB23F00BB7B4B /* YemekSiparis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YemekSiparis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9A41A662BFBB31A00BB7B4B /* Kingfisher in Frameworks */,
-				F9A41A732BFBB40300BB7B4B /* FirebaseAuth in Frameworks */,
 				F9A41A6A2BFBB33000BB7B4B /* SnapKit in Frameworks */,
 				F9A41AAB2BFBCC9E00BB7B4B /* Alamofire in Frameworks */,
 				F9A41A702BFBB3CA00BB7B4B /* RxSwift in Frameworks */,
@@ -127,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F98D59662BFD1E5B0096F2F7 /* StepperButton.swift */,
+				F98D59782BFFAF3D0096F2F7 /* DetailStepperButton.swift */,
 			);
 			path = StepperButton;
 			sourceTree = "<group>";
@@ -140,6 +147,39 @@
 				F98D596D2BFD720F0096F2F7 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		F98D59772BFF89040096F2F7 /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				F98D59752BFF89010096F2F7 /* CustomNavigationView.swift */,
+			);
+			path = NavigationView;
+			sourceTree = "<group>";
+		};
+		F98D597C2C00FF6C0096F2F7 /* informationView */ = {
+			isa = PBXGroup;
+			children = (
+				F98D597D2C00FF8B0096F2F7 /* InformationView.swift */,
+			);
+			path = informationView;
+			sourceTree = "<group>";
+		};
+		F98D597F2C0102DC0096F2F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F98D59802C0102E60096F2F7 /* Animations */,
+				F9A41A572BFBB24100BB7B4B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F98D59802C0102E60096F2F7 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F98D59812C0102EF0096F2F7 /* loadingAnimation.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		F9A41A422BFBB23F00BB7B4B = {
@@ -168,7 +208,7 @@
 				F9A41A4E2BFBB23F00BB7B4B /* AppDelegate.swift */,
 				F9A41A502BFBB23F00BB7B4B /* SceneDelegate.swift */,
 				F9A41A622BFBB2C200BB7B4B /* ui */,
-				F9A41A572BFBB24100BB7B4B /* Assets.xcassets */,
+				F98D597F2C0102DC0096F2F7 /* Resources */,
 				F9A41A592BFBB24100BB7B4B /* LaunchScreen.storyboard */,
 				F9A41A5C2BFBB24100BB7B4B /* Info.plist */,
 			);
@@ -178,12 +218,14 @@
 		F9A41A622BFBB2C200BB7B4B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				F98D597C2C00FF6C0096F2F7 /* informationView */,
 				F98D59652BFD1E490096F2F7 /* StepperButton */,
 				F9A41AC62BFCE1A900BB7B4B /* TabBar */,
 				F9A41AB22BFCC4FA00BB7B4B /* Cell */,
 				F9A41AB12BFBCDFC00BB7B4B /* ViewModel */,
 				F9A41A632BFBB2C800BB7B4B /* Views */,
 				F98D596A2BFD20D70096F2F7 /* Base */,
+				F98D59772BFF89040096F2F7 /* NavigationView */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -331,7 +373,6 @@
 				F9A41A692BFBB33000BB7B4B /* SnapKit */,
 				F9A41A6C2BFBB33E00BB7B4B /* Lottie */,
 				F9A41A6F2BFBB3CA00BB7B4B /* RxSwift */,
-				F9A41A722BFBB40300BB7B4B /* FirebaseAuth */,
 				F9A41AAA2BFBCC9E00BB7B4B /* Alamofire */,
 			);
 			productName = YemekSiparis;
@@ -367,7 +408,6 @@
 				F9A41A672BFBB32500BB7B4B /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F9A41A682BFBB33000BB7B4B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F9A41A6B2BFBB33E00BB7B4B /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9A41AA92BFBCC9E00BB7B4B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F9A41A4C2BFBB23F00BB7B4B /* Products */;
@@ -390,6 +430,7 @@
 				F9A41B2A2BFD154800BB7B4B /* Rubik-Light.ttf in Resources */,
 				F9A41B2B2BFD154800BB7B4B /* Rubik-Medium.ttf in Resources */,
 				F9A41B292BFD154800BB7B4B /* Rubik-ExtraBold.ttf in Resources */,
+				F98D59822C0102EF0096F2F7 /* loadingAnimation.json in Resources */,
 				F9A41A5B2BFBB24100BB7B4B /* Base in Resources */,
 				F9A41B2D2BFD154800BB7B4B /* Rubik-SemiBold.ttf in Resources */,
 			);
@@ -405,7 +446,9 @@
 				F9A41A532BFBB23F00BB7B4B /* SplashVC.swift in Sources */,
 				F9A41A8E2BFBB96500BB7B4B /* UIView+Extension.swift in Sources */,
 				F9A41A4F2BFBB23F00BB7B4B /* AppDelegate.swift in Sources */,
+				F98D59762BFF89010096F2F7 /* CustomNavigationView.swift in Sources */,
 				F9A41A902BFBB96500BB7B4B /* UIViewController+Extension.swift in Sources */,
+				F98D59792BFFAF3D0096F2F7 /* DetailStepperButton.swift in Sources */,
 				F9A41A792BFBB86E00BB7B4B /* CartVC.swift in Sources */,
 				F9A41AAF2BFBCDE900BB7B4B /* MainViewModel.swift in Sources */,
 				F9A41AA82BFBCA8800BB7B4B /* SepetYemekler.swift in Sources */,
@@ -435,6 +478,7 @@
 				F98D59702BFD78E40096F2F7 /* RecommendedFoodCell.swift in Sources */,
 				F9A41A772BFBB83D00BB7B4B /* BaseVC.swift in Sources */,
 				F9A41A7B2BFBB87800BB7B4B /* DetailVC.swift in Sources */,
+				F98D597E2C00FF8B0096F2F7 /* InformationView.swift in Sources */,
 				F9A41AA02BFBC87400BB7B4B /* FoodRepository.swift in Sources */,
 				F98D596C2BFD71EE0096F2F7 /* FoodCartCell.swift in Sources */,
 			);
@@ -695,14 +739,6 @@
 				minimumVersion = 4.4.3;
 			};
 		};
-		F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.26.0;
-			};
-		};
 		F9A41AA92BFBCC9E00BB7B4B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -733,11 +769,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F9A41A672BFBB32500BB7B4B /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		F9A41A722BFBB40300BB7B4B /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9A41A712BFBB3EB00BB7B4B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
 		};
 		F9A41AAA2BFBCC9E00BB7B4B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
