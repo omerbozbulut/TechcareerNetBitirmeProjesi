@@ -7,22 +7,49 @@
 
 import UIKit
 import SnapKit
+import Lottie
 
 class SplashVC: BaseVC {
     
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .myRed
+        return view
+    }()
+    
+    lazy var animationView: LottieAnimationView = {
+        var animation = LottieAnimationView(name: "loadingAnimation")
+        animation.contentMode = .scaleAspectFit
+        animation.animationSpeed = 1.0
+        animation.loopMode = .loop
+        animation.play()
+        return animation
+    }()
+    
     override func setupViews() {
         super.setupViews()
-        view.backgroundColor = .blue
-        navigateNextVC()
+        
+        view.addSubview(containerView)
+        containerView.addSubview(animationView)
     }
     
     override func setupLayout() {
         super.setupLayout()
         
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        animationView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.centerX.centerY.equalToSuperview()
+        }
+        
+        navigateNextVC()
     }
     
     func navigateNextVC() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
             self.showMainApp()
         }
     }
