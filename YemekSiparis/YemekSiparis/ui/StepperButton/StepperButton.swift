@@ -126,14 +126,14 @@ class StepperButtonView: BaseView {
         
         increaseButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.height.equalTo(16)
+            make.height.equalTo(20)
             make.leading.equalTo(countBGView.snp.trailing)
             make.trailing.equalToSuperview()
         }
         
         decreaseButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.height.equalTo(16)
+            make.height.equalTo(20)
             make.leading.equalToSuperview()
             make.trailing.equalTo(countBGView.snp.leading)
         }
@@ -145,21 +145,24 @@ class StepperButtonView: BaseView {
     }
     
     func cartButtonConfigure() {
-        countLabel.text = "\(selectedCount)"
-        if selectedCount < 1 {
-            addToCartButton.isHidden = false
-            buttonBorderView.isHidden = true
-            countBGView.isHidden = true
-            countLabel.isHidden = true
-            decreaseButton.isHidden = true
-            increaseButton.isHidden = true
-        } else {
-            addToCartButton.isHidden = true
-            buttonBorderView.isHidden = false
-            countBGView.isHidden = false
-            countLabel.isHidden = false
-            decreaseButton.isHidden = false
-            increaseButton.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            countLabel.text = "\(selectedCount)"
+            if selectedCount < 1 {
+                addToCartButton.isHidden = false
+                buttonBorderView.isHidden = true
+                countBGView.isHidden = true
+                countLabel.isHidden = true
+                decreaseButton.isHidden = true
+                increaseButton.isHidden = true
+            } else {
+                addToCartButton.isHidden = true
+                buttonBorderView.isHidden = false
+                countBGView.isHidden = false
+                countLabel.isHidden = false
+                decreaseButton.isHidden = false
+                increaseButton.isHidden = false
+            }
         }
     }
 }
@@ -167,13 +170,18 @@ class StepperButtonView: BaseView {
 //MARK: Actions
 extension StepperButtonView {
     @objc func increaseCount() {
-        delegate?.addFoodToCart()
-        setSelectedCount()
+        DispatchQueue.main.async {
+            self.delegate?.addFoodToCart()
+            self.setSelectedCount()
+        }
     }
     
     @objc func decreaseCount() {
-        delegate?.removeFoodToCart()
-        setSelectedCount()
+        if selectedCount > 0 {
+            DispatchQueue.main.async {
+                self.delegate?.removeFoodToCart()
+                self.setSelectedCount()
+            }
+        }
     }
-    
 }
