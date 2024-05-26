@@ -48,6 +48,7 @@ class MainVC: BaseVC {
     
     var foodList = [Yemekler]()
     var cartList = [Sepet_yemekler]()
+    var favoriteList = [Food]()
     var viewModel = MainViewModel()
     
     override func setupViews() {
@@ -55,6 +56,7 @@ class MainVC: BaseVC {
         
         viewModel.getAllFood(completion: { value in })
         viewModel.getCartFood()
+        viewModel.getFavorites()
         bindViewModel()
         setNavbar()
         
@@ -109,6 +111,11 @@ class MainVC: BaseVC {
             self.cartList = foods
             self.reload()
         }
+        
+        _ = viewModel.favoriteList.subscribe { foods in
+            self.favoriteList = foods
+            self.reload()
+        }
     }
     
     func addFoodToCart(yemekID: String, addCount: Int = 1, completion: @escaping (Bool) -> ()) {
@@ -128,6 +135,7 @@ class MainVC: BaseVC {
     }
 }
 
+//MARK: CollectionView
 extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return foodList.count
@@ -138,7 +146,10 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
         let food = foodList[indexPath.row]
         cell.delegate = self
         let cartFood = cartList.filter({$0.yemekAdi == food.yemekAdi}).first
-        cell.configure(with: food, cartCount: Int(cartFood?.yemekAdet ?? "0") ?? 0)
+        let favFood = favoriteList.filter({$0.id == food.yemekID}).first
+        cell.configure(with: food, favYemek: favFood, cartCount: Int(cartFood?.yemekAdet ?? "0") ?? 0)
+        cell.isFavorite = favoriteList.contains(where: { $0.id == food.yemekID })
+        cell.setFav()
         return cell
     }
     
@@ -147,11 +158,15 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegate {
         let cartFood = cartList.filter({$0.yemekAdi == food.yemekAdi}).first
         let destination = DetailVC()
         destination.delegate = self
-        destination.configureDetail(with: food, count: Int(cartFood?.yemekAdet ?? "0") ?? 0)
+        let favFood = favoriteList.filter({$0.id == food.yemekID}).first
+        destination.configureDetail(with: food, favYemek: favFood, count: Int(cartFood?.yemekAdet ?? "0") ?? 0)
+        destination.isFavorite = favoriteList.contains(where: { $0.id == food.yemekID })
+        destination.setFav()
         present(to: destination)
     }
 }
 
+//MARK: SearchBar
 extension MainVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
@@ -162,8 +177,24 @@ extension MainVC: UISearchBarDelegate {
     }
 }
 
-//MARK: CollectionCell Delegate
+//MARK: Food CollectionCell Delegate
 extension MainVC: FoodCollectionCellDelegate {
+    
+    func saveFavorite(yemek: Yemekler, completion: @escaping (Bool) -> ()) {
+        if let id = yemek.yemekID, let name = yemek.yemekAdi, let imgName = yemek.yemekResimAdi, let price = yemek.yemekFiyat {
+            viewModel.save(id: id, name: name, imageName: imgName, price: price, completion: { value in
+                completion(value)
+            })
+        }
+    }
+    
+    func deleteFavorite(food: Food, completion: @escaping (Bool) -> ()) {
+        viewModel.delete(food: food, completion: { value in
+            completion(value)
+        })
+        
+    }
+    
     func addCollectionFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
         addFoodToCart(yemekID: yemekID) { value in
             completion(value)

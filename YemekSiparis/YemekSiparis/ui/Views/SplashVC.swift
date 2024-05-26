@@ -49,7 +49,7 @@ class SplashVC: BaseVC {
     }
     
     func navigateNextVC() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.showMainApp()
         }
     }
