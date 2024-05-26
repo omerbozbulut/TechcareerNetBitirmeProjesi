@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import AlertKit
 
 protocol DetailDelegate: AnyObject {
     func addFoodCart(yemekID: String, count: Int, completion: @escaping (Bool) -> ())
+    func saveFavorite(yemek: Yemekler, completion: @escaping (Bool) -> ())
+    func deleteFavorite(food: Food, completion: @escaping (Bool) -> ())
 }
 
 class DetailVC: BaseVC {
@@ -142,6 +145,8 @@ class DetailVC: BaseVC {
     weak var delegate: DetailDelegate?
     var yemek: Yemekler?
     var cartCount = 0
+    var favFood: Food?
+    var isFavorite: Bool?
 
     override func setupViews() {
         view.addSubview(containerView)
@@ -217,9 +222,10 @@ class DetailVC: BaseVC {
         }
     }
     
-    func configureDetail(with yemek: Yemekler, count: Int) {
+    func configureDetail(with yemek: Yemekler, favYemek: Food?, count: Int) {
         self.yemek = yemek
         self.cartCount = count
+        self.favFood = favYemek
         
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(yemek.yemekResimAdi ?? "ayran.png")") {
             foodImage.kf.setImage(with: url)
@@ -233,8 +239,14 @@ class DetailVC: BaseVC {
         totalPriceLabel.text = "₺\(totalPrice)"
     }
     
-    @objc func addToFavorite() {
-        
+    func setFav() {
+        if let isFavorite {
+            if isFavorite {
+                self.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                self.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        }
     }
 }
 
@@ -244,9 +256,46 @@ extension DetailVC {
             print(yemek.yemekID ?? "")
             delegate?.addFoodCart(yemekID: yemek.yemekID ?? "0", count: stepperButtonView.selectedCount, completion: { value in
                 if value {
-                    // show alert
+                    let alertView = AlertAppleMusic17View(title: "\(self.stepperButtonView.selectedCount) food Added to Cart", subtitle: nil, icon: .done)
+
+                    alertView.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                    alertView.titleLabel?.textColor = .black
+                    alertView.present(on: self.containerView)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0, execute: {
+                        self.stepperButtonView.selectedCount = 1
+                        self.stepperButtonView.setSelectedCount()
+                        self.updatePrice()
+                        alertView.dismiss()
+                    })
                 }
             })
+        }
+    }
+}
+
+extension DetailVC {
+    @objc func addToFavorite() {
+        if let yemek, let isFavorite {
+            if !isFavorite {
+                delegate?.saveFavorite(yemek: yemek, completion: { value in
+                    if value {
+                        self.isFavorite = true
+                        self.setFav()
+                    }
+                })
+            } else {
+                if let favFood {
+                    delegate?.deleteFavorite(food: favFood, completion: { value in
+                        if value {
+                            self.isFavorite = false
+                            self.setFav()
+                        }
+                    })
+                }
+            }
+        } else {
+            print("There is no food")
         }
     }
 }
