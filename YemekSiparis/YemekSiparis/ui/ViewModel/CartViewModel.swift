@@ -10,10 +10,12 @@ import RxSwift
 
 class CartViewModel {
     var repository = FoodRepository()
+    var uniqueCartList = BehaviorSubject<[Sepet_yemekler]>(value: [Sepet_yemekler]())
     var cartList = BehaviorSubject<[Sepet_yemekler]>(value: [Sepet_yemekler]())
     
     init() {
-         cartList = repository.cartUniqueFoods
+        uniqueCartList = repository.cartUniqueFoods
+        cartList = repository.cartList
     }
     
     func getAllFood() {
@@ -22,7 +24,7 @@ class CartViewModel {
     
     func addToCart(sepet_yemek: Sepet_yemekler, completion: @escaping (Bool) -> ()) {
         repository.addToCart(yemek: sepet_yemek, completion: { value in
-         completion(value)
+            completion(value)
         })
         getAllFood()
     }
@@ -33,4 +35,5 @@ class CartViewModel {
         })
         getAllFood()
     }
+    
 }

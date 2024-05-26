@@ -130,12 +130,6 @@ class FoodCartCell: BaseTableViewCell {
 
 
 //MARK: Actions
-extension FoodCartCell {
-    @objc func addToFavorite() {
-        print("ADDED FAVORİTE")
-    }
-}
-
 extension FoodCartCell: StepperButtonDelegate {
     func setSelectedCount() -> String {
         if let yemek {
