@@ -141,6 +141,7 @@ class CartVC: BaseVC {
         _ = viewModel.cartList.subscribe { foods in
             self.cartFoods = foods
             self.reload()
+            self.didSetTotalPrice()
         }
     }
     
@@ -191,7 +192,7 @@ class CartVC: BaseVC {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(16)
+            make.bottom.equalTo(minCartView.snp.top)
         }
     }
     
@@ -205,39 +206,39 @@ class CartVC: BaseVC {
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         self.navigationController?.navigationBar.compactAppearance = appearance
-        
-        let img = UIImage(named: "trash.fill") ?? UIImage()
-        let button = UIBarButtonItem(image: img, style: .done, target: self, action: #selector(removeAllFood))
+
+        let img = UIImage(systemName: "trash.fill") ?? UIImage()
+        let button = UIBarButtonItem(image: img, style: .plain, target: self, action: #selector(removeAllFood))
+        navigationController?.navigationBar.tintColor = .white
         navigationItem.rightBarButtonItem = button
+    }
+    
+    func didSetTotalPrice() {
+        totalAmount = 0
+        uniqueCartFoods.forEach { food in
+            var foodAmount = 0
+            if let countStr = food.yemekAdet, let priceStr = food.yemekFiyat, let count = Int(countStr), let price = Int(priceStr)  {
+                foodAmount = count * price
+            }
+            totalAmount += foodAmount
+        }
+        totalPriceLabel.text = "₺\(totalAmount)"
+        updateProgress(currentAmount: Double(totalAmount), minimumAmount: Double(minCartAmount))
+    }
+    
+    func updateProgress(currentAmount: Double, minimumAmount: Double) {
+        progressBar.progress = Float(currentAmount / minimumAmount)
+        if minimumAmount > currentAmount {
+            minCartText.text = "Add items worth ₺\(Int(minimumAmount - currentAmount)) to reach the minimum cart amount."
+        } else {
+            minCartText.text = "You have reached the minimum cart amount!"
+        }
     }
     
     func reload() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-}
-
-//MARK: Table View
-extension CartVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cartFoods.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(withClassAndIdentifier: FoodCartCell.self)
-        let food = cartFoods[indexPath.row]
-        cell.delegate = self
-        cell.configureCell(with: food)
-        return cell
-    }
-}
-
-//MARK: Actions
-extension CartVC {
-    @objc func removeAllFood() {
-        //MARK: Remove all
     }
     
     @objc func checkout() {
@@ -272,9 +273,44 @@ extension CartVC {
     }
 }
 
+//MARK: Table View
+extension CartVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        uniqueCartFoods.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueCell(withClassAndIdentifier: FoodCartCell.self)
+        let food = uniqueCartFoods[indexPath.row]
+        cell.delegate = self
+        cell.configureCell(with: food)
+        return cell
+    }
+}
+
+//MARK: Actions
+extension CartVC {
+    @objc func removeAllFood() {
+        let alertController = UIAlertController(title: "Are you sure you want to delete all foods?", message: nil, preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelButton)
+        
+        let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.cartFoods.forEach { food in
+                self.viewModel.removeFromCart(sepet_yemek: food) { _ in
+                }
+            }
+        }
+        alertController.addAction(deleteButton)
+        
+        self.present(alertController, animated: true)
+    }
+}
+
 extension CartVC: CartCellDelegate {
     func addFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
-        if let currentFood = cartFoods.filter({$0.yemekID == yemekID}).first {
+        if let currentFood = uniqueCartFoods.filter({$0.yemekID == yemekID}).first {
             viewModel.addToCart(sepet_yemek: currentFood, completion: { value in
                 completion(value)
             })
@@ -282,7 +318,7 @@ extension CartVC: CartCellDelegate {
     }
     
     func removeFoodToCart(yemekID: String, completion: @escaping (Bool) -> ()) {
-        if let currentFood = cartFoods.filter({$0.yemekID == yemekID}).first {
+        if let currentFood = uniqueCartFoods.filter({$0.yemekID == yemekID}).first {
             viewModel.removeFromCart(sepet_yemek: currentFood, completion: { value in
                 completion(value)
             })
