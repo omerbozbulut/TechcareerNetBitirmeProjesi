@@ -124,7 +124,10 @@ class CartVC: BaseVC {
         bindViewModel()
         
         view.addSubview(containerView)
-        containerView.addSubviews([tableView])
+        totalAmountView.addSubviews([totalTitleLabel, totalPriceLabel])
+        checkoutView.addSubviews([totalAmountView, checkoutButton])
+        minCartView.addSubviews([minCartText])
+        containerView.addSubviews([tableView, checkoutView, progressBar, minCartView])
     }
     
     func bindViewModel() {
@@ -143,7 +146,41 @@ class CartVC: BaseVC {
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
+        
+        checkoutView.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(88)
+        }
+        
+        totalAmountView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(24)
+        }
+        
+        checkoutButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(24)
+            make.width.equalTo(140)
+            make.height.equalTo(48)
+        }
+        
+        progressBar.snp.makeConstraints { make in
+            make.bottom.equalTo(checkoutView.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        minCartView.snp.makeConstraints { make in
+            make.bottom.equalTo(progressBar.snp.top).offset(-8)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(40)
+        }
+        
+        minCartText.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview()
+        }
+        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
