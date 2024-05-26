@@ -9,43 +9,59 @@ import Foundation
 import RxSwift
 
 class MainViewModel {
-    var repository = FoodRepository()
+    var foodRepository = FoodRepository()
+    var favoriteReposity = FavoriteFoodRepository()
+    
+    var favoriteList = BehaviorSubject<[Food]>(value: [Food]())
     var foodList = BehaviorSubject<[Yemekler]>(value: [Yemekler]())
     var cartList = BehaviorSubject<[Sepet_yemekler]>(value: [Sepet_yemekler]())
     
     init() {
-        foodList = repository.foodList
-        cartList = repository.cartUniqueFoods
+        foodList = foodRepository.foodList
+        cartList = foodRepository.cartUniqueFoods
+        favoriteList = favoriteReposity.favoriteFoodsList
     }
     
     func getCartFood() {
-        repository.getCartFoods()
+        foodRepository.getCartFoods()
     }
     
     func getAllFood(completion: @escaping (Bool) -> ()) {
-        repository.getAllFood(completion: { value in
+        foodRepository.getAllFood(completion: { value in
             completion(value)
         })
     }
     
     func addToCart(yemek: Yemekler, addCount: Int = 1, completion: @escaping (Bool) -> ()) {
         let sepetYemek = Sepet_yemekler(yemekID: UUID().uuidString, yemekFiyat: yemek.yemekFiyat ?? "", yemekAdi: yemek.yemekAdi ?? "Ayran", yemekResimAdi: yemek.yemekResimAdi ?? "", kullaniciAdi: "Omer_Bozbulut", yemekAdet: "1")
-        repository.addToCart(yemek: sepetYemek, addCount: addCount, completion: { value in
+        foodRepository.addToCart(yemek: sepetYemek, addCount: addCount, completion: { value in
             completion(value)
+            self.getCartFood()
         })
-        getCartFood()
     }
     
     func removeFromCart(yemek: Sepet_yemekler, completion: @escaping (Bool) -> ()) {
-        repository.removeFromCart(yemek: yemek,completion: { value in
+        foodRepository.removeFromCart(yemek: yemek,completion: { value in
             completion(value)
+            self.getCartFood()
         })
-        getCartFood()
     }
     
-    func findFood() {
-        _ = foodList.subscribe({ foods in
-            
+    func save(id: String, name: String, imageName: String, price: String,  completion: @escaping (Bool) -> ()) {
+        favoriteReposity.save(id: id, name: name, imageName: imageName, price: price, completion: { value in
+            completion(value)
+            self.getFavorites()
         })
+    }
+    
+    func delete(food: Food, completion: @escaping (Bool) -> ()) {
+        favoriteReposity.delete(food: food, completion: { value in
+            completion(value)
+            self.getFavorites()
+        })
+    }
+    
+    func getFavorites() {
+        favoriteReposity.getFavorites()
     }
 }
