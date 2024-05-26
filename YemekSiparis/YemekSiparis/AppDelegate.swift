@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,5 +35,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "FoodModel")
+        container.loadPersistentStores(completionHandler: { (storeDescription,error) in
+            if let e = error {
+                print("Hata : \((e as NSError).userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    func saveContext(){
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do{
+                try context.save()
+            }catch{
+                print("Hata  : \((error as NSError).userInfo)")
+            }
+        }
+    }
+    
 }
 
