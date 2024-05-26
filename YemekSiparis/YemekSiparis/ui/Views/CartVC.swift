@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import AlertKit
 
 class CartVC: BaseVC {
     
@@ -131,6 +132,12 @@ class CartVC: BaseVC {
     }
     
     func bindViewModel() {
+        _ = viewModel.uniqueCartList.subscribe { foods in
+            self.uniqueCartFoods = foods
+            self.reload()
+            self.didSetTotalPrice()
+        }
+        
         _ = viewModel.cartList.subscribe { foods in
             self.cartFoods = foods
             self.reload()
@@ -231,6 +238,37 @@ extension CartVC: UITableViewDelegate, UITableViewDataSource {
 extension CartVC {
     @objc func removeAllFood() {
         //MARK: Remove all
+    }
+    
+    @objc func checkout() {
+        if totalAmount > minCartAmount-1 {
+            self.cartFoods.forEach { food in
+                self.viewModel.removeFromCart(sepet_yemek: food) { _ in
+                }
+            }
+            
+            let img = UIImage(named: "accept")!
+            let alertView = AlertAppleMusic17View(title: "Your order has been received.", subtitle: nil, icon: .custom(img))
+
+            alertView.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            alertView.titleLabel?.textColor = .black
+            alertView.present(on: self.tableView)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.5, execute: {
+                alertView.dismiss()
+            })
+        }else {
+            let img = UIImage(named: "decline")!
+            let alertView = AlertAppleMusic17View(title: "You did not reach the sufficient amount.", subtitle: nil, icon: .custom(img))
+
+            alertView.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            alertView.titleLabel?.textColor = .black
+            alertView.present(on: self.tableView)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.5, execute: {
+                alertView.dismiss()
+            })
+        }
     }
 }
 
