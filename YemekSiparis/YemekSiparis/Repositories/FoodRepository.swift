@@ -14,6 +14,10 @@ class FoodRepository {
     var cartList = BehaviorSubject<[Sepet_yemekler]>(value: [Sepet_yemekler]())
     var cartUniqueFoods = BehaviorSubject<[Sepet_yemekler]>(value: [Sepet_yemekler]())
     
+    init() {
+        self.setUniqueFoods()
+    }
+    
     func getAllFood(completion: @escaping (Bool) -> ()) {
         let url = "http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php"
         
@@ -24,7 +28,6 @@ class FoodRepository {
                     if let foods = yemekListesi.yemekler {
                         self.foodList.onNext(foods)
                         completion(true)
-                        print(foods.count)
                     }
                 } catch {
                     print(error.localizedDescription)
@@ -43,11 +46,9 @@ class FoodRepository {
                     if let rawJSON = String(data: data, encoding: .utf8),
                        rawJSON.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         self.cartList.onNext([])
-                        self.setUniqueFoods()
                     } else {
                         let yemekListesi = try JSONDecoder().decode(SepetTumyemekler.self, from: data)
                         self.cartList.onNext(yemekListesi.sepet_yemekler)
-                        self.setUniqueFoods()
                     }
                 } catch {
                     print("CART ERROR")
@@ -65,11 +66,9 @@ class FoodRepository {
         for _ in 0..<addCount {
             AF.request(url, method: .post, parameters: params).response { response in
                 if let data = response.data {
-                    do{
-                        let cevap = try JSONDecoder().decode(CRUDCevap.self, from: data)
+                    do {
+                        let _ = try JSONDecoder().decode(CRUDCevap.self, from: data)
                         completion(true)
-                        print(cevap.message!)
-                        print(cevap.success!)
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -85,10 +84,8 @@ class FoodRepository {
         AF.request(url, method: .post, parameters: params).response { response in
             if let data = response.data {
                 do {
-                    let cevap = try JSONDecoder().decode(CRUDCevap.self, from: data)
+                    let _ = try JSONDecoder().decode(CRUDCevap.self, from: data)
                     completion(true)
-                    print(cevap.message!)
-                    print(cevap.success!)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -97,14 +94,13 @@ class FoodRepository {
     }
     
     func setUniqueFoods() {
-        var yemekDictionary = [String: Sepet_yemekler]()
-        
         _ = cartList.subscribe { cartFoods in
+            var yemekDictionary = [String: Sepet_yemekler]()
             for yemek in cartFoods {
                 if let ad = yemek.yemekAdi, let adet = yemek.yemekAdet, let adetInt = Int(adet) {
                     if let mevcutYemek = yemekDictionary[ad] {
                         if let mevcutAdet = mevcutYemek.yemekAdet, let mevcutAdetInt = Int(mevcutAdet) {
-                            mevcutYemek.yemekAdet = String(mevcutAdetInt + adetInt)
+                            mevcutYemek.yemekAdet = String((mevcutAdetInt + adetInt))
                         }
                     } else {
                         yemekDictionary[ad] = yemek
