@@ -12,6 +12,8 @@ import Kingfisher
 protocol FoodCollectionCellDelegate: AnyObject {
     func addCollectionFoodToCart(yemekID: String, completion: @escaping (Bool) -> ())
     func removeCollectionFoodToCart(yemekAdi: String, completion: @escaping (Bool) -> ())
+    func saveFavorite(yemek: Yemekler, completion: @escaping (Bool) -> ())
+    func deleteFavorite(food: Food, completion: @escaping (Bool) -> ())
 }
 
 class FoodCollectionCell: BaseCollectionViewCell {
@@ -40,14 +42,14 @@ class FoodCollectionCell: BaseCollectionViewCell {
     
     lazy var likeButton: UIButton = {
         let img = UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
-
+        
         let button = UIButton(type: .custom,
                               title: .empty,
                               image: img,
                               alignment: .fill,
                               backgroundColor: .clear,
                               titleColor: .red)
-
+        
         button.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
         return button
     }()
@@ -79,6 +81,8 @@ class FoodCollectionCell: BaseCollectionViewCell {
     
     weak var delegate: FoodCollectionCellDelegate?
     var yemek: Yemekler?
+    var favFood: Food?
+    var isFavorite: Bool?
     var cartCount = 0
     
     override func setupViews() {
@@ -91,7 +95,7 @@ class FoodCollectionCell: BaseCollectionViewCell {
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
+        
         foodImage.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
@@ -122,17 +126,49 @@ class FoodCollectionCell: BaseCollectionViewCell {
             make.height.width.equalTo(24)
         }
     }
+    
+    func setFav() {
+        if let isFavorite {
+            if isFavorite {
+                self.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                self.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        }
+    }
 }
 
-//MARK: Actions
+//MARK: Favorite Actions
 extension FoodCollectionCell {
     @objc func addToFavorite() {
-        print("ADDED FAVORİTE")
+        if let yemek, let isFavorite {
+            if !isFavorite {
+                delegate?.saveFavorite(yemek: yemek, completion: { value in
+                    if value {
+                        self.isFavorite = true
+                        self.setFav()
+                    }
+                })
+            } else {
+                if let favFood {
+                    delegate?.deleteFavorite(food: favFood, completion: { value in
+                        if value {
+                            self.isFavorite = false
+                            self.setFav()
+                        }
+                    })
+                }
+            }
+        } else {
+            print("There is no food")
+        }
     }
     
-    func configure(with yemek: Yemekler, cartCount: Int) {
+    //MARK: Configures
+    func configure(with yemek: Yemekler, favYemek: Food?, cartCount: Int) {
         self.cartCount = cartCount
         self.yemek = yemek
+        self.favFood = favYemek
         
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(yemek.yemekResimAdi ?? "ayran.png")") {
             foodImage.kf.setImage(with: url)
@@ -142,8 +178,23 @@ extension FoodCollectionCell {
         foodPriceLabel.text = "₺\(yemek.yemekFiyat ?? "10")"
         addToCartButton.setSelectedCount()
     }
+    
+    func configure(with favYemek: Food) {
+        self.favFood = favYemek
+        let yemek = Yemekler(yemekID: favYemek.id!, yemekFiyat: favYemek.price!, yemekAdi: favYemek.name!, yemekResimAdi: favYemek.image_name!)
+        
+        self.yemek = yemek
+        if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(favYemek.image_name ?? "ayran.png")") {
+            foodImage.kf.setImage(with: url)
+        }
+        
+        foodNameLabel.text = favYemek.name
+        foodPriceLabel.text = "₺\(favYemek.price ?? "10")"
+        addToCartButton.isHidden = true
+    }
 }
 
+//MARK: Cart actions
 extension FoodCollectionCell: StepperButtonDelegate {
     func setSelectedCount() -> String {
         "\(cartCount)"
