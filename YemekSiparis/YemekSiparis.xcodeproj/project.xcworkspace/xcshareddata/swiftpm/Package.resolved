@@ -1,5 +1,5 @@
 {
-  "originHash" : "19d5fde8b98e22258c3450acdf6becc44fe8a109130397695730cb8c425a8699",
+  "originHash" : "1fb19b7163b1398059bbcd9a9fedc06c5d72bad9be057bdba33daf68d180de50",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
         "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "alertkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/AlertKit.git",
+      "state" : {
+        "revision" : "3b73be8db5a7e7efaf474c6ed919f5a437d843c9",
+        "version" : "5.1.9"
       }
     },
     {
